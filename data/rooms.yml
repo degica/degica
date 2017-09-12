@@ -1,0 +1,16 @@
+-
+  id: main
+  description: "It's pitch black."
+  doors:
+    north: 1
+    south: 2
+-
+  id: 1
+  description: "There is a small table in the middle of the room."
+  doors:
+    south: main
+-
+  id: 2
+  description: "It's a deadend."
+  doors:
+    north: main
