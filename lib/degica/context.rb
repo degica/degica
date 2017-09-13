@@ -4,8 +4,9 @@ module Degica
       @actor = actor
       @focus = actor.focus || NilActionable.new
 
-      define_actions(@focus)
       define_actions(@actor)
+      define_actions(@focus)
+
       define_objects(@actor)
 
       define_singleton_method :actions do
