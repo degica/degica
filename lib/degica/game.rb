@@ -2,7 +2,7 @@ module Degica
   class Game
     def initialize
       rooms = RoomLoader.load
-      @actor = Actor.new(rooms["main"])
+      @actor = Actor.new(rooms[0])
     end
 
     def start
