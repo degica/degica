@@ -4,9 +4,9 @@ module Degica
 
     attr_accessor :id, :description, :doors
 
-    def initialize(description, doors = [])
+    def initialize(description)
       @description = description
-      @doors = doors
+      @doors = Collection.new(:doors, [])
     end
 
     def actions

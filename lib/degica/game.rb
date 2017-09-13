@@ -1,7 +1,15 @@
 module Degica
   class Game
+    attr_reader :actor
+
     def initialize
-      rooms = RoomLoader.load
+      rooms = []
+      rooms << Room.new("It's pitch black.")
+      rooms << Room.new("There is a small table in the middle of the room. There is something on the table.")
+      rooms << Room.new("It's a dead end.")
+      doors = []
+      doors << Door.new(rooms[0], rooms[1], "A big wood door")
+      doors << Door.new(rooms[0], rooms[2], "A black door")
       @actor = Actor.new(rooms[0])
     end
 

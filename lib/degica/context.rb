@@ -4,12 +4,12 @@ module Degica
       @actor = actor
       @focus = actor.focus || NilActionable.new
 
-      define_actions(@focus)
       define_actions(@actor)
       define_objects(@actor)
+      define_actions(@focus)
 
       define_singleton_method :actions do
-        (@actor.actions + @focus.actions).uniq
+        (@actor.actions + @focus.actions).uniq(&:name)
       end
     end
 
