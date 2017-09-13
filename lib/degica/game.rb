@@ -1,7 +1,16 @@
 module Degica
   class Game
     def initialize
-      rooms = RoomLoader.load
+      rooms = [
+        Room.new("It's pitch black"),
+        Room.new("There is a small table in the middle of the room."),
+        Room.new("It's a deadend")
+      ]
+      doors = [
+        Door.new(rooms[0], rooms[1], "A big wood door."),
+        Door.new(rooms[0], rooms[2], "A black door.")
+      ]
+
       @actor = Actor.new(rooms[0])
     end
 

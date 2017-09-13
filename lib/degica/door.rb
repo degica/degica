@@ -4,6 +4,9 @@ module Degica
 
     def initialize(from_, to_, description_)
       @from, @to, @description = from_, to_, description_
+
+      @from.doors << self
+      @to.doors << self
     end
 
     def open
