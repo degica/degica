@@ -2,11 +2,11 @@ module Degica
   class Room
     include Actionable
 
-    attr_accessor :id, :description, :doors
+    attr_accessor :description, :doors
 
     def initialize(description, doors = [])
       @description = description
-      @doors = Collection.new(:doors, doors)
+      @doors = Collection.new(Door, doors)
     end
 
     def actions
