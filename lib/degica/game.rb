@@ -20,7 +20,7 @@ module Degica
       puts "Type \"actions\" to see what actions you can perform."
 
       loop do
-        input = Readline.readline("> ", true)
+        input = Readline.readline("#{prompt}> ", true)
         exit if input == "exit"
         begin
           context = Context.new(@actor)
@@ -37,6 +37,14 @@ module Degica
           puts e.message
         end
         puts
+      end
+    end
+
+    private
+
+    def prompt
+      if @actor.focus
+        @actor.focus.class.to_s.split('::').last.downcase
       end
     end
   end
