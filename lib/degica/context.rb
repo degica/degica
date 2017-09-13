@@ -31,5 +31,9 @@ module Degica
         end
       end
     end
+
+    def inspect
+      @actor.inspect
+    end
   end
 end
