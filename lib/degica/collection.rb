@@ -13,7 +13,7 @@ module Degica
     end
 
     def actions
-      map(&:actions).flatten
+      []
     end
 
     def inspect
