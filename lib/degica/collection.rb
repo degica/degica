@@ -11,5 +11,9 @@ module Degica
         collection
       end
     end
+
+    def inspect
+      "There are #{size} #{@name.to_s}."
+    end
   end
 end
