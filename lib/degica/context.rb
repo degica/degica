@@ -2,17 +2,22 @@ module Degica
   class Context
     def initialize(actor)
       @actor = actor
-      define_actions(actor)
-      define_objects(actor)
+      @focus = actor.focus || NilActionable.new
+
+      define_actions(@focus)
+      define_actions(@actor)
+      define_objects(@actor)
+
+      define_singleton_method :actions do
+        (@actor.actions + @focus.actions).uniq
+      end
     end
 
-    def define_actions(actor)
-      define_singleton_method :actions do
-        actor.actions
-      end
-      actor.actions.each do |action|
+    def define_actions(actionable)
+      actionable.actions.each do |action|
         define_singleton_method action.name do
-          actor.do(action.name)
+          actionable.do(action.name)
+          @actor.focus = action.target
           action.target
         end
       end
