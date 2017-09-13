@@ -1,13 +1,27 @@
 module Degica
   class Door
-    attr_reader :from, :to, :description
+    include Actionable
 
-    def initialize(from_, to_, description_)
-      @from, @to, @description = from_, to_, description_
+    attr_reader :description
+
+    def initialize(room1, room2, description)
+      @description = description
+      @rooms = [room1, room2]
+
+      # connect rooms
+      room1.doors << self
+      room2.doors << self
     end
 
-    def open
-      puts "You open the door."
+    def actions
+      [Action.new(:enter, self)]
+    end
+
+    def enter
+      puts "You walk through the doorway."
+      next_room = (@rooms - [Actor.current.location])[0]
+      Actor.current.location = next_room
+      next_room
     end
 
     def inspect

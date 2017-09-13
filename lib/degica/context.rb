@@ -1,29 +1,26 @@
 module Degica
-  class Context
+  class Context < BasicObject
     def initialize(actor)
       @actor = actor
-      define_actions(actor)
-      define_objects(actor)
+      @focus = actor.focus || NilActionable.new
     end
 
-    def define_actions(actor)
-      define_singleton_method :actions do
-        actor.actions
-      end
-      actor.actions.each do |action|
-        define_singleton_method action.name do
-          actor.do(action.name)
-          action.target
-        end
+    def method_missing(method)
+      if method == :actions
+        (@actor.actions + @focus.actions).uniq(&:name)
+      elsif match = @focus.actions.find { |action| action.name == method }
+        @focus.do(match.name)
+      elsif match = @actor.actions.find { |action| action.name == method }
+        @actor.do(match.name)
+      elsif match = @actor.objects.find { |object| object.name == method }
+        match
+      else
+        super
       end
     end
 
-    def define_objects(actor)
-      actor.objects.each do |object|
-        define_singleton_method object.name do
-          object
-        end
-      end
+    def inspect
+      @actor.inspect
     end
   end
 end
