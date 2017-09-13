@@ -15,11 +15,11 @@ module Degica
     end
 
     def actions
-      [Action.new(@location.name, @location)] + @location.actions
+      [Action.new(:inspect, self)] + @location.actions
     end
 
     def inspect
-      @location.description
+      @location.inspect
     end
 
     def self.current
