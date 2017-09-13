@@ -8,8 +8,8 @@ module Degica
       rooms << Room.new("There is a small table in the middle of the room. There is something on the table.")
       rooms << Room.new("It's a dead end.")
       doors = []
-      doors << Door.new(rooms[0], rooms[1], "A big wood door")
-      doors << Door.new(rooms[0], rooms[2], "A black door")
+      doors << Door.new(rooms[0], rooms[1], "A big wood door.")
+      doors << Door.new(rooms[0], rooms[2], "A black door.")
       @actor = Actor.new(rooms[0])
     end
 
@@ -27,6 +27,7 @@ module Degica
           when String # remove quotes in console i.e. > "string"
             puts output
           else
+            @actor.focus = output if output.respond_to?(:actions)
             puts output.inspect
           end
         rescue Exception => e

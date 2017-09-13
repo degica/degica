@@ -7,7 +7,7 @@ module Degica
       super(items)
       collection = self
       define_singleton_method name do
-        collection.inspect
+        collection
       end
     end
 

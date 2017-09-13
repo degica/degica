@@ -17,8 +17,6 @@ module Degica
       actionable.actions.each do |action|
         define_singleton_method action.name do
           actionable.do(action.name)
-          @actor.focus = action.target
-          action.target
         end
       end
     end

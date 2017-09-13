@@ -11,19 +11,22 @@ module Degica
     end
 
     def actions
-      [Action.new(:open, self)]
+      door = self
+      [Action.new(:open, door), Action.new(:door, door)]
     end
 
     def open
       @open = true
+      "You open the door."
     end
 
     def close
       @open = false
+      "You close the door."
     end
 
     def inspect
-      @description
+      @description + " The door is #{@open ? "open" : "closed"}."
     end
   end
 end
