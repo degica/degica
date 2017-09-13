@@ -1,34 +1,21 @@
 module Degica
-  class Context
+  class Context < BasicObject
     def initialize(actor)
       @actor = actor
       @focus = actor.focus || NilActionable.new
+    end
 
-      define_actions(@actor)
-      define_objects(@actor)
-
-      # focused instance takes priority
-      define_actions(@focus)
-
-      define_singleton_method :actions do
+    def method_missing(method)
+      if method == :actions
         (@actor.actions + @focus.actions).uniq(&:name)
-      end
-    end
-
-    def define_actions(actionable)
-      actionable.actions.each do |action|
-        define_singleton_method action.name do
-          actionable.do(action.name)
-          action.target
-        end
-      end
-    end
-
-    def define_objects(actor)
-      actor.objects.each do |object|
-        define_singleton_method object.name do
-          object
-        end
+      elsif match = @focus.actions.find { |action| action.name == method }
+        @focus.do(match.name)
+      elsif match = @actor.actions.find { |action| action.name == method }
+        @actor.do(match.name)
+      elsif match = @actor.objects.find { |object| object.name == method }
+        match
+      else
+        super
       end
     end
 
