@@ -1,6 +1,6 @@
 module Degica
   class Collection < Array
-    include Actionable
+    attr_reader :name
 
     def initialize(name, items = [])
       @name = name
@@ -10,14 +10,6 @@ module Degica
       define_singleton_method name do
         collection
       end
-    end
-
-    def actions
-      []
-    end
-
-    def inspect
-      "There are #{size} #{@name.to_s}."
     end
   end
 end
