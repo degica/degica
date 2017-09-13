@@ -2,8 +2,8 @@ module Degica
   class Room
     attr_accessor :id, :description, :doors
 
-    def methods
-      [:doors]
+    def actions
+      [Action.new(:doors, self)]
     end
 
     def inspect
