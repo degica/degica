@@ -5,9 +5,10 @@ module Degica
       @focus = actor.focus || NilActionable.new
 
       define_actions(@actor)
-      define_actions(@focus)
-
       define_objects(@actor)
+
+      # focused instance takes priority
+      define_actions(@focus)
 
       define_singleton_method :actions do
         (@actor.actions + @focus.actions).uniq(&:name)
