@@ -8,5 +8,7 @@ require "degica/room"
 require "degica/ansi"
 require "degica/version"
 
+require "degica/core_ext/did_you_mean"
+
 module Degica
 end
