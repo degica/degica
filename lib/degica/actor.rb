@@ -2,8 +2,8 @@ module Degica
   class Actor
     include Actionable
 
-    attr_reader :location, :objects, :actions
-    attr_accessor :focus
+    attr_reader :objects, :actions
+    attr_accessor :location, :focus
 
     def initialize(location)
       @location = location
