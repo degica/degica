@@ -10,7 +10,7 @@ module Degica
       define_objects(@actor)
 
       define_singleton_method :actions do
-        (@actor.actions + @focus.actions).uniq
+        (@actor.actions + @focus.actions).uniq(&:name)
       end
     end
 
