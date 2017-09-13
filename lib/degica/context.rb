@@ -5,10 +5,12 @@ module Degica
       @focus = actor.focus || NilActionable.new
     end
 
+    def actions
+      (@actor.actions + @focus.actions).uniq(&:name)
+    end
+
     def method_missing(method)
-      if method == :actions
-        (@actor.actions + @focus.actions).uniq(&:name)
-      elsif match = @focus.actions.find { |action| action.name == method }
+      if match = @focus.actions.find { |action| action.name == method }
         @focus.do(match.name)
       elsif match = @actor.actions.find { |action| action.name == method }
         @actor.do(match.name)
