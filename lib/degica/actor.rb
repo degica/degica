@@ -1,28 +1,17 @@
 module Degica
   class Actor
-    attr_reader :room
+    include Actionable
 
-    def initialize(room)
-      @room = room
-    end
+    attr_reader :location, :objects, :actions
 
-    def methods
-      [:inspect, :doors, :go]
-    end
-
-    def go(room)
-      raise ArgumentError, "ArgumentError: argument must be a room instance" unless room.is_a?(Room)
-      puts "You enter the door."
-      @room = room
-      @room.description
-    end
-
-    def doors
-      @room.doors
+    def initialize(location)
+      @location = location
+      @actions = [Action.new(location.name, location)] + location.actions
+      @objects  = Objects.new
     end
 
     def inspect
-      @room.description
+      @location.description
     end
   end
 end
