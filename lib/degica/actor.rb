@@ -7,12 +7,15 @@ module Degica
 
     def initialize(location)
       @location = location
-      @actions = [Action.new(location.name, location)] + location.actions
       @objects  = Objects.new
       @focus = nil
 
       # TODO Remove global state (v2)
       @@current = self
+    end
+
+    def actions
+      [Action.new(@location.name, @location)] + @location.actions
     end
 
     def inspect
