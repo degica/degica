@@ -1,17 +1,17 @@
 module Degica
   class Door
-    attr_reader :from, :to
+    attr_reader :from, :to, :description
 
-    def initialize(from_, to_)
-      @from, @to = from_, to_
+    def initialize(from_, to_, description_)
+      @from, @to, @description = from_, to_, description_
     end
 
     def open
-      puts "You open the door"
+      puts "You open the door."
     end
 
     def inspect
-      "Door"
+      @description
     end
   end
 end

@@ -1,0 +1,7 @@
+-
+  from: 0
+  description: A large door with Rubies engraved into it.
+  to: 1
+- from: 0
+  description: A small red door.
+  to: 2
