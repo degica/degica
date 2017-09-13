@@ -6,7 +6,7 @@ module Degica
 
     def initialize(description, doors = [])
       @description = description
-      @doors = doors
+      @doors = Collection.new(:doors, doors)
     end
 
     def actions
