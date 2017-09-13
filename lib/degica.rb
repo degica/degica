@@ -1,6 +1,7 @@
 require "yaml"
 require "readline"
 
+require "degica/actionable"
 require "degica/room_loader"
 require "degica/actor"
 require "degica/game"

@@ -8,11 +8,12 @@ module Degica
 
     def define_actions(actor)
       define_singleton_method :actions do
-        actor.actions.inspect
+        actor.actions
       end
       actor.actions.each do |action|
         define_singleton_method action.name do
           actor.do(action.name)
+          action.target
         end
       end
     end
@@ -20,7 +21,7 @@ module Degica
     def define_objects(actor)
       actor.objects.each do |object|
         define_singleton_method object.name do
-          object.inspect
+          object
         end
       end
     end

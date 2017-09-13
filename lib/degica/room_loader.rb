@@ -6,19 +6,15 @@ module Degica
 
       # build rooms
       @rooms = @yaml.inject({}) do |hash, e|
-        room = Room.new
-        room.id = e["id"]
-        room.description = e["description"]
-        room.doors = e["doors"]
-
+        room = Room.new(e["description"])
         hash[e["id"]] = room
         hash
       end
 
       # expand doors
       @rooms.each do |id, room|
-        room.doors.each do |direction, goto_id|
-          @rooms[id].doors[direction] = @rooms[goto_id]
+        room.doors.each do |_, goto_id|
+          @rooms[id].doors << Door.new(@rooms[id], @rooms[goto_id])
         end
       end
 
