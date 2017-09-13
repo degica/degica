@@ -27,6 +27,9 @@ module Degica
           case output = context.instance_eval(input)
           when String # remove quotes in console i.e. > "string"
             puts output
+          when Actionable
+            @actor.focus = output
+            puts output.inspect
           else
             puts output.inspect
           end
