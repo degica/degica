@@ -15,7 +15,7 @@ module Degica
     end
 
     def actions
-      [Action.new(:inspect, self)] + @location.actions
+      @location.actions
     end
 
     def inspect
