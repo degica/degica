@@ -1,7 +1,6 @@
 module Degica
   class Room
     include Actionable
-
     attr_accessor :description, :doors
 
     def initialize(description, doors = [])
@@ -15,10 +14,6 @@ module Degica
 
     def inspect
       description
-    end
-
-    def name
-      :room
     end
   end
 end

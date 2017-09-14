@@ -1,7 +1,6 @@
 module Degica
   class Door
     include Actionable
-
     attr_reader :description
 
     def initialize(room1, room2, description)
@@ -26,6 +25,10 @@ module Degica
 
     def inspect
       @description
+    end
+
+    def prompt
+      "door"
     end
   end
 end
