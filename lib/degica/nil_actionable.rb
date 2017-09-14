@@ -5,5 +5,9 @@ module Degica
     def actions
       []
     end
+
+    def inspect
+      nil
+    end
   end
 end

@@ -22,7 +22,7 @@ module Degica
     end
 
     def inspect
-      @actor.inspect
+      @actor.focus.inspect || @actor.inspect
     end
   end
 end
