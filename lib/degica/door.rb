@@ -17,7 +17,6 @@ module Degica
     end
 
     def enter
-      puts "You walk through the doorway."
       next_room = (@rooms - [Actor.current.location])[0]
       Actor.current.location = next_room
       next_room
