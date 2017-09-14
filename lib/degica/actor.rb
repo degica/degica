@@ -7,7 +7,7 @@ module Degica
 
     def initialize(location)
       @location = location
-      @objects  = Objects.new
+      @objects  = ObjectCollection.new
       @focus = nil
 
       # TODO Remove global state (v2)

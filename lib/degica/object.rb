@@ -1,20 +1,25 @@
 module Degica
-  class Room
+  class Object
     include Actionable
-    attr_accessor :description, :doors
 
-    def initialize(description, objects = [])
+    attr_reader :name, :description
+
+    def initialize(name, description, objects = [])
+      @name = name.to_sym
       @description = description.highlight
-      @doors = DoorCollection.new
       @objects = ObjectCollection.new(objects)
     end
 
     def actions
-      @doors.actions + @objects.actions
+      @objects.actions
     end
 
     def inspect
       @description
+    end
+
+    def prompt
+      @name
     end
   end
 end

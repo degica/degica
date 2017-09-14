@@ -1,17 +1,18 @@
 module Degica
   class Collection < Array
-    attr_reader :name
+    def item_name
+      nil
+    end
 
-    def initialize(klass, items = [])
-      @name = klass.to_s.split('::').last.downcase
-      super(items)
+    def actions
+      []
     end
 
     def inspect
       if size > 1
-        "There are #{size} #{@name}s."
+        "There are #{size} #{item_name}s."
       else
-        "There is a #{@name}."
+        "There is a #{item_name}."
       end
     end
   end
