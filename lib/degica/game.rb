@@ -43,9 +43,7 @@ module Degica
     private
 
     def prompt
-      if @actor.focus
-        @actor.focus.class.to_s.split('::').last.downcase
-      end
+      @actor.focus&.prompt
     end
   end
 end
