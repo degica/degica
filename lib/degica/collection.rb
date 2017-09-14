@@ -1,11 +1,9 @@
 module Degica
   class Collection < Array
+    include Actionable
+
     def item_name
       nil
-    end
-
-    def actions
-      []
     end
 
     def inspect
