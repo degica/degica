@@ -19,7 +19,8 @@ module Degica
 
     def start
       ANSI.clear_screen
-      puts "Welcome to ⚔️  Degica Quest ⚔️ "
+      puts "Welcome to"
+      puts ANSI.highlight(File.read(Degica.root + '/data/images/degica_quest.txt'), :yellow)
       puts "Type \"actions\" to see what actions you can perform."
 
       loop do
