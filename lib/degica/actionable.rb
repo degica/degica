@@ -1,16 +1,22 @@
 module Degica
+  # Allows objects to be actionable in the game REPL.
+  # Actionable objects can be focused, described,
+  # and can expose actions in the REPL.
   module Actionable
-    # Customized REPL prompt for action
+    # Customized REPL prompt for action. For example,
+    # if the prompt method returned "book"
+    #
+    #   book> ...
     def prompt
       nil
     end
 
-    # List of actions available in REPL
+    # @returns [Array<Degica::Action>] a list of actions.
     def actions
       []
     end
 
-    # Description to output in REPL
+    # @returns [String] string describing the object.
     def describe
       nil
     end
