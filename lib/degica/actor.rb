@@ -18,8 +18,8 @@ module Degica
       @location.actions
     end
 
-    def inspect
-      @location.inspect
+    def describe
+      @location.describe
     end
 
     def self.current

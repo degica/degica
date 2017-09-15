@@ -13,7 +13,7 @@ module Degica
       @doors.actions + @objects.actions
     end
 
-    def inspect
+    def describe
       @description
     end
   end

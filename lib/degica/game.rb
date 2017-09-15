@@ -32,7 +32,7 @@ module Degica
             puts output
           when Actionable
             @actor.focus = output
-            puts output.inspect
+            puts output.describe
           else
             puts output.inspect
           end

@@ -16,7 +16,7 @@ module Degica
       puts "You pick up the a ruby."
     end
 
-    def inspect
+    def describe
       File.read(Degica.root + 'data/images/ruby.ansi')
     end
   end

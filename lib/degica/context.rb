@@ -6,7 +6,7 @@ module Degica
     end
 
     def actions
-      ([Action.new(:inspect, self)] + @actor.actions + @focus.actions).uniq(&:name)
+      ([Action.new(:describe, self)] + @actor.actions + @focus.actions).uniq(&:name)
     end
 
     def method_missing(method)
@@ -21,8 +21,8 @@ module Degica
       end
     end
 
-    def inspect
-      @actor.focus&.inspect || @actor.inspect
+    def describe
+      @actor.focus&.describe|| @actor.describe
     end
   end
 end

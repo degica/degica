@@ -22,7 +22,7 @@ module Degica
       next_room
     end
 
-    def inspect
+    def describe
       @description
     end
 

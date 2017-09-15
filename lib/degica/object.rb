@@ -14,7 +14,7 @@ module Degica
       @objects.actions
     end
 
-    def inspect
+    def describe
       @description
     end
 
