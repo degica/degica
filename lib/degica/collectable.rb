@@ -1,6 +1,7 @@
 module Degica
+  # Collectable instances store a reference to the {Degica::Collection}
+  # they belong to. {Degica::Collection} handles updating the state.
   module Collectable
-    # defines an items parent collection
     attr_accessor :collection
   end
 end
