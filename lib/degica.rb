@@ -32,6 +32,6 @@ require "degica/core_ext/did_you_mean"
 
 module Degica
   def self.root
-    File.dirname(__FILE__) + '/../'
+    File.expand_path '../..', __FILE__
   end
 end

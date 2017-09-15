@@ -18,7 +18,7 @@ module Degica
     end
 
     def describe
-      File.read(Degica.root + 'data/images/ruby.ansi')
+      File.read(Degica.root + '/data/images/ruby.ansi')
     end
   end
 end
