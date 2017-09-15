@@ -12,7 +12,7 @@ module Degica
 
     # Description to output in REPL
     def describe
-      inspect
+      nil
     end
 
     def do(name)

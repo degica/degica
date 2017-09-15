@@ -1,6 +1,7 @@
 module Degica
   class Object
     include Actionable
+    include Collectable
 
     attr_reader :name, :description
 

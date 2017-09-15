@@ -2,12 +2,12 @@ module Degica
   class Actor
     include Actionable
 
-    attr_reader :objects, :actions
     attr_accessor :location, :focus
+    attr_reader :inventory
 
     def initialize(location)
       @location = location
-      @objects  = ObjectCollection.new
+      @inventory = InventoryCollection.new
       @focus = nil
 
       # TODO Remove global state (v2)
@@ -15,11 +15,11 @@ module Degica
     end
 
     def actions
-      @location.actions
+      [Action.new(:describe, self), Action.new(:inventory, self)] + @location.actions
     end
 
     def describe
-      @location.describe
+      @focus&.describe || @location.describe
     end
 
     def self.current

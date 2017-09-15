@@ -1,6 +1,27 @@
 module Degica
   class Collection < Array
+    # A collection is a group of +Collectable+ instances which
+    # can expose a actions in the current context.
+    #
+    # Since collections are actionable custom descriptions and
+    # actions can be added when inheriting this class.
     include Actionable
+
+    def initialize(items = [])
+      items.each do |item|
+        item.collection = self
+      end
+      super(items)
+    end
+
+    def <<(item)
+      item.collection = self
+      push(item)
+    end
+
+    def actions
+      []
+    end
 
     def item_name
       nil

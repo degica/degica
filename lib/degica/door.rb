@@ -1,6 +1,8 @@
 module Degica
   class Door
     include Actionable
+    include Collectable
+
     attr_reader :description
 
     def initialize(room1, room2, description)

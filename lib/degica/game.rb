@@ -2,7 +2,7 @@ module Degica
   class Game
     def initialize
       objects = [
-        Object.new(:table, "There is a small (ruby) on the table.", [RubyObject.new])
+        Object.new(:table, "It's a table.", [RubyObject.new])
       ]
       rooms = [
         Room.new("It's pitch black"),
@@ -32,7 +32,8 @@ module Degica
             puts output
           when Actionable
             @actor.focus = output
-            puts output.describe
+            message = output.describe
+            puts message unless message.nil?
           else
             puts output.inspect
           end

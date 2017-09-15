@@ -1,7 +1,9 @@
 require "yaml"
 require "readline"
+require "pry"
 
 # core
+require "degica/collectable"
 require "degica/actionable"
 require "degica/room_loader"
 require "degica/actor"
@@ -22,6 +24,7 @@ require "degica/objects/ruby_object"
 require "degica/collection"
 require "degica/collections/object_collection"
 require "degica/collections/door_collection"
+require "degica/collections/inventory_collection"
 
 # core extentions
 require "degica/core_ext/string"

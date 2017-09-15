@@ -9,11 +9,12 @@ module Degica
     end
 
     def actions
+      return [] if collection.is_a?(InventoryCollection)
       [Action.new(:take, self)]
     end
 
     def take
-      puts "You pick up the a ruby."
+      collection.pickup(self)
     end
 
     def describe
