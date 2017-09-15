@@ -9,9 +9,16 @@ module Degica
       @location = location
       @inventory = InventoryCollection.new
       @focus = nil
+      @points = 0
 
       # TODO Remove global state (v2)
       @@current = self
+    end
+
+    def pickup(item)
+      @inventory << item.collection.delete(item)
+      @points += 10
+      puts "You've gained #{ANSI.highlight('10 points', :white)} 💕"
     end
 
     def actions

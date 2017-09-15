@@ -2,7 +2,9 @@ module Degica
   module ANSI
     COLORS = {
       none: "\e[0m",
-      yellow: "\e[1;33m"
+      yellow: "\e[1;33m",
+      red: "\e[31m",
+      white: "\e[3;1m"
     }
 
     class << self

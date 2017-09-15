@@ -2,7 +2,7 @@ module Degica
   class Game
     def initialize
       objects = [
-        Object.new(:table, "It's a table.", [RubyObject.new])
+        Object.new(:table, "There is a small (ruby) laying on the table.", [RubyObject.new])
       ]
       rooms = [
         Room.new("It's pitch black"),
