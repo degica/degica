@@ -4,8 +4,14 @@ module Degica
       [Action.new(:doors, self)]
     end
 
-    def item_name
-      :door
+    def describe
+      return "The are no doors here..." if empty?
+
+      if size > 1
+        "There are #{size} doors in the room."
+      else
+        "There is a door."
+      end
     end
   end
 end

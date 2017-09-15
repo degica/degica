@@ -4,10 +4,6 @@ module Degica
       "inventory"
     end
 
-    def item_name
-      :items
-    end
-
     def describe
       if empty?
         "You have no items in your inventory."
