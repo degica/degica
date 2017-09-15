@@ -6,7 +6,9 @@ module Degica
       nil
     end
 
-    def inspect
+    def describe
+      return inspect if empty?
+
       if size > 1
         "There are #{size} #{item_name}s."
       else
