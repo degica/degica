@@ -7,7 +7,7 @@ module Degica
       rooms = [
         Room.new("It's pitch black"),
         Room.new("There is a small (table) in the middle of the room.", objects),
-        Room.new("It's a deadend")
+        Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [MatzObject.new])
       ]
       doors = [
         Door.new(rooms[0], rooms[1], "A big wood door."),
@@ -31,6 +31,10 @@ module Degica
           case output = context.instance_eval(input)
           when String # remove quotes in console i.e. > "string"
             puts output
+          when @actor.focus
+            # Don't output anything if we're already focused.
+            # This allows actionable objects to return themselves without outputting
+            # their description again.
           when Actionable
             @actor.focus = output
             message = output.describe

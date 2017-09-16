@@ -4,7 +4,6 @@ module Degica
 
     def initialize
       @name = :ruby
-      @description = "A shiny ruby."
       @objects = []
     end
 
