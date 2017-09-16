@@ -36,7 +36,7 @@ module Degica
             message = output.describe
             puts message unless message.nil?
           else
-            puts output.inspect
+            puts CodeRay.scan(output.inspect, :ruby).terminal
           end
         rescue Exception => e
           puts e.message
