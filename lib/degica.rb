@@ -1,5 +1,6 @@
 require "yaml"
 require "readline"
+require "coderay"
 
 # core
 require "degica/collectable"
