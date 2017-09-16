@@ -21,7 +21,7 @@ module Degica
       ANSI.clear_screen
       puts "Welcome to"
       puts ANSI.highlight(File.read(Degica.root + '/data/images/degica_quest.txt'), :yellow)
-      puts "Type \"actions\" to see what actions you can perform."
+      puts "Type (actions) to see what actions you can perform.".highlight
 
       loop do
         input = Readline.readline("#{prompt}> ", true)

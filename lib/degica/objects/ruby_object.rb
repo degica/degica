@@ -9,12 +9,16 @@ module Degica
     end
 
     def actions
-      return [] if collection.is_a?(InventoryCollection)
-      [Action.new(:take, self)]
+      if Actor.current.has_item?(self)
+        []
+      else
+        [Action.new(:take, self)]
+      end
     end
 
     def take
-      collection.pickup(self)
+      Actor.current.pickup(self)
+      NilActionable.new
     end
 
     def describe

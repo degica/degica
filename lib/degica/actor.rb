@@ -16,9 +16,14 @@ module Degica
     end
 
     def pickup(item)
+      puts "You picked up a (#{item.name}).".highlight
       @inventory << item.collection.delete(item)
       @points += 10
       puts "You've gained #{ANSI.highlight('10 points', :white)} 💕"
+    end
+
+    def has_item?(item)
+      @inventory.include?(item)
     end
 
     def actions
