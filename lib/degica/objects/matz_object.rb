@@ -12,7 +12,7 @@ module Degica
     def talk
       puts Faker::Matz.quote
       @talked = true
-      self
+      NilActionable.new
     end
 
     def describe

@@ -31,10 +31,8 @@ module Degica
           case output = context.instance_eval(input)
           when String # remove quotes in console i.e. > "string"
             puts output
-          when @actor.focus
-            # Don't output anything if we're already focused.
-            # This allows actionable objects to return themselves without outputting
-            # their description again.
+          when NilActionable
+            # do nothing
           when Actionable
             @actor.focus = output
             message = output.describe
