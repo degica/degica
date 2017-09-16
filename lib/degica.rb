@@ -1,6 +1,5 @@
 require "yaml"
 require "readline"
-require "pry"
 
 # core
 require "degica/collectable"
