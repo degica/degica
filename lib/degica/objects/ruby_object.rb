@@ -4,7 +4,6 @@ module Degica
 
     def initialize
       @name = :ruby
-      @description = "A shiny ruby."
       @objects = []
     end
 
@@ -18,7 +17,7 @@ module Degica
 
     def take
       Actor.current.pickup(self)
-      NilActionable.new
+      Actor.current.focus = NilActionable.new
     end
 
     def describe
