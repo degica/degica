@@ -45,7 +45,7 @@ module Degica
 
       def sample_with_order(words)
         size = words.size
-        indexes = size.times.map { |n| n }.sample(rand(1..size)).sort
+        indexes = [*0..size-1].sample(rand(1..size)).sort
         indexes.collect { |i| words[i] }
       end
     end
