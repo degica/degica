@@ -16,7 +16,10 @@ module Degica
     end
 
     def describe
-      "He's smiling at you. You smile back. Maybe you should (talk) with him.".highlight
+      desc = []
+      desc << "He's smiling at you. You smile back."
+      desc << "Maybe you should (talk) with him.".highlight unless @talked
+      desc.join(' ')
     end
   end
 end
