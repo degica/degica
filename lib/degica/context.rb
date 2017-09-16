@@ -14,15 +14,9 @@ module Degica
         @focus.do(match.name)
       elsif match = @actor.actions.find { |action| action.name == method }
         @actor.do(match.name)
-      elsif match = @actor.objects.find { |object| object.name == method }
-        match
       else
         super
       end
-    end
-
-    def inspect
-      @actor.focus&.inspect || @actor.inspect
     end
   end
 end

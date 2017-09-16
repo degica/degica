@@ -1,18 +1,26 @@
 module Degica
   class Collection < Array
-    attr_reader :name
+    # A collection is a group of {Degica::Collectable} instances which
+    # can expose actions in the current context.
+    #
+    # Since collections are actionable, custom descriptions and
+    # actions can be added when inheriting from this class.
+    include Actionable
 
-    def initialize(klass, items = [])
-      @name = klass.to_s.split('::').last.downcase
+    def initialize(items = [])
+      items.each do |item|
+        item.collection = self
+      end
       super(items)
     end
 
-    def inspect
-      if size > 1
-        "There are #{size} #{@name}s."
-      else
-        "There is a #{@name}."
-      end
+    def <<(item)
+      item.collection = self
+      push(item)
+    end
+
+    def actions
+      []
     end
   end
 end

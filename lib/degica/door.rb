@@ -1,6 +1,8 @@
 module Degica
   class Door
     include Actionable
+    include Collectable
+
     attr_reader :description
 
     def initialize(room1, room2, description)
@@ -17,13 +19,12 @@ module Degica
     end
 
     def enter
-      puts "You walk through the doorway."
       next_room = (@rooms - [Actor.current.location])[0]
       Actor.current.location = next_room
       next_room
     end
 
-    def inspect
+    def describe
       @description
     end
 

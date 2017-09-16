@@ -2,24 +2,36 @@ module Degica
   class Actor
     include Actionable
 
-    attr_reader :objects, :actions
     attr_accessor :location, :focus
+    attr_reader :inventory
 
     def initialize(location)
       @location = location
-      @objects  = Objects.new
+      @inventory = InventoryCollection.new
       @focus = nil
+      @points = 0
 
       # TODO Remove global state (v2)
       @@current = self
     end
 
-    def actions
-      [Action.new(:inspect, self)] + @location.actions
+    def pickup(item)
+      puts "You picked up a (#{item.name}).".highlight
+      @inventory << item.collection.delete(item)
+      @points += 10
+      puts "You've gained #{ANSI.highlight('10 points', :white)} 💕"
     end
 
-    def inspect
-      @location.inspect
+    def has_item?(item)
+      @inventory.include?(item)
+    end
+
+    def actions
+      [Action.new(:describe, self), Action.new(:inventory, self)] + @location.actions
+    end
+
+    def describe
+      @focus&.describe || @location.describe
     end
 
     def self.current

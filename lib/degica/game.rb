@@ -1,9 +1,12 @@
 module Degica
   class Game
     def initialize
+      objects = [
+        Object.new(:table, "There is a small (ruby) laying on the table.", [RubyObject.new])
+      ]
       rooms = [
         Room.new("It's pitch black"),
-        Room.new("There is a small table in the middle of the room."),
+        Room.new("There is a small (table) in the middle of the room.", objects),
         Room.new("It's a deadend")
       ]
       doors = [
@@ -16,8 +19,9 @@ module Degica
 
     def start
       ANSI.clear_screen
-      puts "Welcome to ⚔️  Degica Quest ⚔️ "
-      puts "Type \"actions\" to see what actions you can perform."
+      puts "Welcome to"
+      puts ANSI.highlight(File.read(Degica.root + '/data/images/degica_quest.txt'), :yellow)
+      puts "Type (actions) to see what actions you can perform.".highlight
 
       loop do
         input = Readline.readline("#{prompt}> ", true)
@@ -29,7 +33,8 @@ module Degica
             puts output
           when Actionable
             @actor.focus = output
-            puts output.inspect
+            message = output.describe
+            puts message unless message.nil?
           else
             puts output.inspect
           end
