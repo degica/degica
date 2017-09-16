@@ -7,7 +7,6 @@ module Degica
       'black',
       'white',
       'brown',
-      'purple'
     ]
 
     MATERIAL = [
@@ -36,8 +35,19 @@ module Degica
       'tiny'
     ]
 
-    def self.sample
-      "A #{ADJECTIVES.sample} #{MATERIAL.sample} #{COLORS.sample} door."
+    class << self
+      def sample
+        desc = sample_with_order([ADJECTIVES.sample, MATERIAL.sample, COLORS.sample]).join(' ')
+        "A #{desc} door."
+      end
+
+      private
+
+      def sample_with_order(words)
+        size = words.size
+        indexes = size.times.map { |n| n }.sample(rand(1..size)).sort
+        indexes.collect { |i| words[i] }
+      end
     end
   end
 end
