@@ -44,6 +44,8 @@ module Degica
             @actor.focus = output
             message = output.describe
             puts message unless message.nil?
+          when NilClass
+            puts @actor.describe
           else
             puts CodeRay.scan(output.inspect, :ruby).terminal
           end
