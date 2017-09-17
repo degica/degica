@@ -4,8 +4,8 @@ module Degica
       :table
     end
 
-    def initialize
-      @objects = ObjectCollection.new([Ruby.new])
+    def initialize(objects = [Ruby.new])
+      super(objects)
     end
 
     def describe
