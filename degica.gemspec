@@ -27,11 +27,12 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "bin"
-  spec.executables   = ["degica"] 
+  spec.executables   = ["degica"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "coderay", "~> 1.1.2"
   spec.add_dependency "faker", "~> 1.8"
+  spec.add_dependency "rest-client", "~> 2.0"
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
