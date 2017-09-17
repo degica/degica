@@ -10,9 +10,6 @@ module Degica
       @inventory = InventoryCollection.new
       @focus = nil
       @points = 0
-
-      # TODO Remove global state (v2)
-      @@current = self
     end
 
     def pickup(item)
@@ -32,10 +29,6 @@ module Degica
 
     def describe
       @focus&.describe || @location.describe
-    end
-
-    def self.current
-      @@current
     end
   end
 end

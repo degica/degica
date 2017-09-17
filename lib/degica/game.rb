@@ -1,20 +1,26 @@
 module Degica
   class Game
     def initialize
-      objects = [
-        Object.new(:table, "There is a small (ruby) laying on the table.", [RubyObject.new])
-      ]
+      # setup scenes
       rooms = [
         Room.new("It's pitch black"),
-        Room.new("There is a small (table) in the middle of the room.", objects),
+        Room.new("It's a deadend."),
         Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [MatzObject.new])
       ]
-      doors = [
-        Door.new(rooms[0], rooms[1]),
-        Door.new(rooms[0], rooms[2])
-      ]
 
-      @actor = Actor.new(rooms[0])
+      # spawn actor in random room
+      starting_room = rooms.sample
+      starting_room.generate_doors!(rooms)
+      @actor = Actor.new(starting_room)
+
+      @@objects = OpenStruct.new(
+        rooms: rooms,
+        actor: @actor
+      )
+    end
+
+    def self.objects
+      @@objects
     end
 
     def start

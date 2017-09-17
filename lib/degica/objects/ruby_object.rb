@@ -8,7 +8,7 @@ module Degica
     end
 
     def actions
-      if Actor.current.has_item?(self)
+      if Game.objects.actor.has_item?(self)
         []
       else
         [Action.new(:take, self)]
@@ -16,8 +16,8 @@ module Degica
     end
 
     def take
-      Actor.current.pickup(self)
-      Actor.current.focus = NilActionable.new
+      Game.objects.actor.pickup(self)
+      Game.objects.actor.focus = NilActionable.new
     end
 
     def describe
