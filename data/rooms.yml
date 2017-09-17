@@ -21,8 +21,7 @@
     There is nothing in this room except some (doors).
 -
   description: |
-    There's a small (table) in the center of the room. There appears to be
-    something on it. Maybe you should take a closer look.
+    There's a small (table) in the center of the room. Maybe you should take a closer look.
   objects: [Table]
 -
   description: |
