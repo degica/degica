@@ -33,12 +33,15 @@ module Degica
       desc.join(" ")
     end
 
-    def give(object)
-      unless object.is_a?(Object)
+    def give(object = nil)
+      if object.nil?
+        return "What do you want to give?"
+      elsif !object.is_a?(::Degica::Object)
         return "\"#{object}\" is not in your (inventory).".highlight
       end
 
-      if @inventory << object.collection.delete(object)
+      if object.collection.delete(object)
+        @inventory << object
         puts "You gave the (#{object.name}) to #{name}.".highlight
       else
         puts "You don't have any #{object.name}."
