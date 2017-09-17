@@ -8,7 +8,7 @@ module Degica
       Faker::Matz.quote
     end
 
-    def give(object)
+    def give(object = nil)
       super.tap do
         if object.name == :ruby
           puts "He thanks you for bringing him the ruby."
