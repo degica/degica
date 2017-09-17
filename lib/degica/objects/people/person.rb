@@ -2,6 +2,7 @@ module Degica
   class Person < Object
     def initialize
       @talked = false
+      @inventory = InventoryCollection.new
     end
 
     def name
@@ -17,7 +18,7 @@ module Degica
     end
 
     def actions
-      [Action.new(:talk, self)]
+      [Action.new(:talk, self), Action.new(:give, self)]
     end
 
     def inspect
@@ -32,10 +33,25 @@ module Degica
       desc.join(" ")
     end
 
+    def give(object)
+      if @inventory << object.collection.delete(object)
+        puts "You gave the (#{object.name}) to #{name}.".highlight
+      else
+        puts "You don't have any #{object.name}."
+      end
+      NilActionable.new
+    end
+
     def describe
       desc = []
       desc << description
       desc << "Maybe you should (talk) with him.".highlight unless @talked
+    end
+
+    private
+
+    def holding?(name)
+      !!@inventory.find { |item| item.name == name }
     end
   end
 end

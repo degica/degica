@@ -9,7 +9,9 @@ module Degica
     end
 
     def description
-      "He's smiling at you. You smile back."
+      desc = "He's smiling at you. You smile back."
+      desc += "\nHe is holding a ruby." if holding?(:ruby)
+      desc
     end
   end
 end

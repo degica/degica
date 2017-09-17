@@ -9,7 +9,9 @@ module Degica
     end
 
     def description
-      "He's flexing his muscles."
+      desc = "He's flexing his muscles."
+      desc += "\nHe has a ruby." if holding?(:ruby)
+      desc
     end
   end
 end
