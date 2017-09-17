@@ -20,6 +20,10 @@ module Degica
       [Action.new(:talk, self)]
     end
 
+    def inspect
+      "#{name.capitalize} says: \"Don't inspect me!\""
+    end
+
     def talk
       @talked = true
       desc = []
