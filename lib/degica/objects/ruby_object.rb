@@ -17,7 +17,7 @@ module Degica
 
     def take
       Game.objects.actor.pickup(self)
-      Game.objects.actor.focus = NilActionable.new
+      NilActionable.new
     end
 
     def describe
