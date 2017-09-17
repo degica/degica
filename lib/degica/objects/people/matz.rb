@@ -8,9 +8,19 @@ module Degica
       Faker::Matz.quote
     end
 
+    def give(object)
+      super.tap do
+        if object.name == :ruby
+          puts "He thanks you for bringing him the ruby."
+          Game.objects.actor.award(20)
+        end
+      end
+    end
+
     def description
-      desc = "He's smiling at you. You smile back."
-      desc += "\nHe is holding a ruby." if holding?(:ruby)
+      desc = []
+      desc << "He's smiling at you. You smile back."
+      desc << "He is holding a ruby." if holding?(:ruby)
       desc
     end
   end

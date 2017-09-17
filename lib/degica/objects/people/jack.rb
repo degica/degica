@@ -13,8 +13,9 @@ module Degica
     end
 
     def description
-      desc = "It's Jack Momose. He's the CEO of Degica."
-      desc += "\nHe is holding a ruby. He doesn't seem to know what he should do with it." if holding?(:ruby)
+      desc = []
+      desc << "It's Jack Momose. He's the CEO of Degica."
+      desc << "He is holding a ruby. He doesn't seem to know what he should do with it." if holding?(:ruby)
       desc
     end
   end
