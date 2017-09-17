@@ -50,7 +50,7 @@ module Degica
       desc = []
       desc << description
       desc << "Maybe you should (talk) with him.".highlight unless @talked
-      desc
+      desc.join("\n")
     end
 
     private
