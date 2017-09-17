@@ -19,6 +19,7 @@ module Degica
 
     def actions
       actions = @doors.actions + @objects.actions
+      actions << Action.new(:room, self)
       actions << Action.new(:door, @doors.first) if @doors.size == 1
       actions
     end
