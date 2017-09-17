@@ -2,6 +2,7 @@ require "yaml"
 require "readline"
 require "coderay"
 require "faker"
+require "ostruct"
 
 # core
 require "degica/collectable"
