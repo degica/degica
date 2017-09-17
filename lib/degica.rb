@@ -1,8 +1,11 @@
 require "yaml"
 require "readline"
 require "coderay"
-require "faker"
 require "ostruct"
+
+# preload translations
+require "faker"
+Faker::Name.first_name
 
 # core
 require "degica/collectable"
@@ -24,7 +27,10 @@ require "degica/generators/door_name_generator"
 # objects
 require "degica/object"
 require "degica/objects/ruby_object"
-require "degica/objects/matz_object"
+require "degica/objects/people/person"
+require "degica/objects/people/matz"
+require "degica/objects/people/hacker"
+require "degica/objects/people/jack"
 
 # collections
 require "degica/collection"

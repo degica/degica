@@ -3,15 +3,18 @@ module Degica
     def initialize
       # setup scenes
       rooms = [
-        Room.new("It's pitch black"),
-        Room.new("It's a deadend."),
-        Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [MatzObject.new])
+        Room.new("It's pitch black. There's a (hacker) in the room", [Hacker.new]),
+        Room.new("It's a deadend. There's a person standing in the corner. It's (jack) momose.", [Jack.new]),
+        Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [Matz.new])
       ]
 
       # spawn actor in random room
       starting_room = rooms.sample
       starting_room.generate_doors!(rooms)
       @actor = Actor.new(starting_room)
+
+      # preload translations for Faker
+      Faker::Name.first_name
 
       @@objects = OpenStruct.new(
         rooms: rooms,
@@ -37,8 +40,6 @@ module Degica
           case output = context.instance_eval(input)
           when String # remove quotes in console i.e. > "string"
             puts output
-          when NilActionable
-            # do nothing
           when Actionable
             @actor.focus = output
             message = output.describe
