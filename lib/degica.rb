@@ -33,6 +33,7 @@ require "degica/objects/people/person"
 require "degica/objects/people/matz"
 require "degica/objects/people/hacker"
 require "degica/objects/people/jack"
+require "degica/objects/people/chuck_norris"
 
 # collections
 require "degica/collection"

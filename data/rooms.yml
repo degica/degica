@@ -29,3 +29,8 @@
     There's someone standing in the center of the room.
     He has a conference nametag on his shirt. It says (jack).
   objects: [Jack]
+-
+  description: |
+    There's a man doing situps in a corner of the room.
+    It looks like (chuck) norris.
+  objects: [ChuckNorris]
