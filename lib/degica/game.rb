@@ -1,21 +1,18 @@
 module Degica
   class Game
     def initialize
-      # setup scenes
+      # setup rooms
       rooms = RoomLoader.load
 
       # spawn actor in random room
       starting_room = rooms.sample
-      starting_room.generate_doors!(rooms)
       @actor = Actor.new(starting_room)
 
-      # preload translations for Faker
-      Faker::Name.first_name
+      # game objects
+      @@objects = OpenStruct.new(rooms: rooms, actor: @actor)
 
-      @@objects = OpenStruct.new(
-        rooms: rooms,
-        actor: @actor
-      )
+      # generate starting room
+      starting_room.generate!
     end
 
     def self.objects
