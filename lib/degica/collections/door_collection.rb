@@ -8,7 +8,7 @@ module Degica
       return "The are no doors here..." if empty?
 
       desc = []
-      desc << "You see #{size} doors:" if size > 1
+      desc << (size > 1 ? "You see #{size} doors:" : "You see one door:")
       desc << map(&:describe)
       desc.flatten.join("\n")
     end

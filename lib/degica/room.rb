@@ -18,7 +18,9 @@ module Degica
     end
 
     def actions
-      @doors.actions + @objects.actions
+      actions = @doors.actions + @objects.actions
+      actions << Action.new(:door, @doors.first) if @doors.size == 1
+      actions
     end
 
     def describe
