@@ -34,6 +34,10 @@ module Degica
     end
 
     def give(object)
+      unless object.is_a?(Object)
+        return "\"#{object}\" is not in your (inventory).".highlight
+      end
+
       if @inventory << object.collection.delete(object)
         puts "You gave the (#{object.name}) to #{name}.".highlight
       else
