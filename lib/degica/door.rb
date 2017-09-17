@@ -15,7 +15,12 @@ module Degica
     end
 
     def actions
-      [Action.new(:enter, self)]
+      [Action.new(:enter, self), Action.new(:open, self)]
+    end
+
+    def open
+      Game.objects.actor.focus = self
+      "You opened the door. Try to (enter) it.".highlight
     end
 
     def enter
