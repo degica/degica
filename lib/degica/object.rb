@@ -3,11 +3,7 @@ module Degica
     include Actionable
     include Collectable
 
-    attr_reader :name, :description
-
-    def initialize(name, description, objects = [])
-      @name = name.to_sym
-      @description = description.highlight
+    def initialize(objects = [])
       @objects = ObjectCollection.new(objects)
     end
 
@@ -15,12 +11,16 @@ module Degica
       @objects.actions
     end
 
+    def name
+      raise NotImplementedError
+    end
+
     def describe
-      @description
+      raise NotImplementedError
     end
 
     def prompt
-      @name
+      name
     end
   end
 end

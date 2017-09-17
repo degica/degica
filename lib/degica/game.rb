@@ -2,11 +2,7 @@ module Degica
   class Game
     def initialize
       # setup scenes
-      rooms = [
-        Room.new("It's pitch black. There's a (hacker) in the room", [Hacker.new]),
-        Room.new("It's a deadend. There's a person standing in the corner. It's (jack) momose.", [Jack.new]),
-        Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [Matz.new])
-      ]
+      rooms = RoomLoader.load
 
       # spawn actor in random room
       starting_room = rooms.sample
@@ -31,6 +27,7 @@ module Degica
       puts "Welcome to"
       puts ANSI.highlight(File.read(Degica.root + '/data/images/degica_quest.txt'), :yellow)
       puts "Type (actions) to see what actions you can perform.".highlight
+      puts "\n" + @@objects.actor.describe + "\n\n"
 
       loop do
         input = Readline.readline("#{prompt}> ", true)

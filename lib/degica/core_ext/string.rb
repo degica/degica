@@ -1,5 +1,5 @@
 class String
-  def highlight
-    gsub(/\(([A-Za-z]+)\)/, "#{Degica::ANSI.highlight('\1', :yellow)}")
+  def highlight(color = :yellow)
+    gsub(/\(([A-Za-z\s]+)\)/m, "#{Degica::ANSI.highlight('\1', color)}")
   end
 end
