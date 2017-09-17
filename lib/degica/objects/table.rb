@@ -1,5 +1,5 @@
 module Degica
-  class TableWithRuby < Object
+  class Table < Object
     def name
       :table
     end
@@ -9,7 +9,10 @@ module Degica
     end
 
     def describe
-      "The table is quite old. You see a (ruby) on top of the table.".highlight
+      desc = []
+      desc << "The table is quite old."
+      desc << @objects.describe
+      desc.join("\n")
     end
   end
 end

@@ -23,7 +23,7 @@
   description: |
     There's a small (table) in the center of the room. There's appears to be
     something on it. Maybe you should take a closer look.
-  objects: [TableWithRuby]
+  objects: [Table]
 -
   description: |
     There's someone standing in the center of the room.
