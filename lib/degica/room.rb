@@ -7,10 +7,14 @@ module Degica
       @description = description.highlight
       @doors = DoorCollection.new
       @objects = ObjectCollection.new(objects)
+      @generated = false
     end
 
-    def generate_doors!(rooms)
-      rooms = rooms.select do |room|
+    def generate!
+      return if @generated
+      @generated = true
+
+      rooms = Game.objects.rooms.select do |room|
         room.doors.empty? && room != self
       end.sample(rand(1..2))
 

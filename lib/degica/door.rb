@@ -26,7 +26,7 @@ module Degica
     def enter
       next_room = (@rooms - [Game.objects.actor.location])[0]
       Game.objects.actor.location = next_room
-      next_room.generate_doors!(Game.objects.rooms)
+      next_room.generate!
       next_room
     end
 
