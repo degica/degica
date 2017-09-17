@@ -5,8 +5,8 @@ module Degica
 
     attr_reader :description
 
-    def initialize(room1, room2, description)
-      @description = description
+    def initialize(room1, room2)
+      @description = DoorNameGenerator.sample
       @rooms = [room1, room2]
 
       # connect rooms

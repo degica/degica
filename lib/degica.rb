@@ -17,6 +17,9 @@ require "degica/room"
 require "degica/ansi"
 require "degica/version"
 
+# generators
+require "degica/generators/door_name_generator"
+
 # objects
 require "degica/object"
 require "degica/objects/ruby_object"

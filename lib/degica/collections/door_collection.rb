@@ -6,12 +6,7 @@ module Degica
 
     def describe
       return "The are no doors here..." if empty?
-
-      if size > 1
-        "There are #{size} doors in the room."
-      else
-        "There is a door."
-      end
+      map(&:describe).join("\n")
     end
   end
 end

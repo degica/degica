@@ -10,8 +10,8 @@ module Degica
         Room.new("The room is dimly lit. There's a man standing in the corner. It's (matz), the creator.", [MatzObject.new])
       ]
       doors = [
-        Door.new(rooms[0], rooms[1], "A big wood door."),
-        Door.new(rooms[0], rooms[2], "A black door.")
+        Door.new(rooms[0], rooms[1]),
+        Door.new(rooms[0], rooms[2])
       ]
 
       @actor = Actor.new(rooms[0])
