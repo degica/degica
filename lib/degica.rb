@@ -26,7 +26,9 @@ require "degica/generators/door_name_generator"
 
 # objects
 require "degica/object"
-require "degica/objects/ruby_object"
+require "degica/objects/ruby"
+require "degica/objects/job_posting"
+require "degica/objects/table_with_ruby"
 require "degica/objects/people/person"
 require "degica/objects/people/matz"
 require "degica/objects/people/hacker"

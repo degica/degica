@@ -1,10 +1,7 @@
 module Degica
-  class RubyObject < Object
-    include Actionable
-
-    def initialize
-      @name = :ruby
-      @objects = []
+  class Ruby < Object
+    def name
+      :ruby
     end
 
     def actions

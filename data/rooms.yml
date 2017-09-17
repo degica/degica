@@ -1,9 +1,31 @@
 -
-  id: 0
-  description: "It's pitch black."
+  description: |
+    It's pretty dark in here. You can barely make out some (doors) in the room.
+    There's someone standing in the corner. As you get a little closer
+    you realize its (matz), the founder of the Ruby programming language.
+  objects: [Matz]
 -
-  id: 1
-  description: "There is a small table in the middle of the room. There is something on the table."
+  description: |
+    As you enter the room there is a layer of undisturbed dust.
+    There seems to be something posted on the wall. It looks like ruby job (postings).
+    You feel a sense of relief since you're currently looking for work.
+  objects: [JobPosting]
 -
-  id: 2
-  description: "It's a deadend."
+  description: |
+    You see a faint glow from a computer screen coming from the corner of the room.
+    As you walk closer you realize there is a (hacker) sitting in front of the computer.
+  objects: [Hacker]
+-
+  description: |
+    It's pitch black. You feel a cold chill as air rushes through the room.
+    There is nothing in this room except some (doors).
+-
+  description: |
+    There's a small (table) in the center of the room. There's appears to be
+    something on it. Maybe you should take a closer look.
+  objects: [TableWithRuby]
+-
+  description: |
+    There's someone standing in the center of the room.
+    He has a conference nametag on his shirt. It says (jack).
+  objects: [Jack]
