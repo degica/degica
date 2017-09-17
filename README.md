@@ -2,12 +2,12 @@
 
 Welcome brave Ruby warrior. An epic adventure awaits you.
 
-## 🛠  Installation
+## 🛠  How to Play
 
-Add this line to your application's Gemfile:
+Install the rubygem
 
 ```ruby
-gem 'degica'
+gem install degica
 ```
 
 And then execute:
