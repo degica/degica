@@ -21,8 +21,8 @@ module Degica
       nil
     end
 
-    def do(name)
-      actions.find { |action| action.name == name }.do
+    def do(name, *args)
+      actions.find { |action| action.name == name }.do(*args)
     end
   end
 end

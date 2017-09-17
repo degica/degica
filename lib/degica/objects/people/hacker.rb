@@ -9,7 +9,10 @@ module Degica
     end
 
     def description
-      "He looks like he could hack into anything."
+      desc = []
+      desc << "He looks like he could hack into anything."
+      desc << "He is holding a ruby." if holding?(:ruby)
+      desc
     end
   end
 end

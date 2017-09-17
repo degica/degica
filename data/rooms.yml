@@ -13,7 +13,7 @@
 -
   description: |
     You see a faint glow from a computer screen coming from the corner of the room.
-    As you walk closer you realize there is a (hacker) sitting in front of the computer.
+    As you walk closer you realize there is a computer (hacker) sitting in front of the screen.
   objects: [Hacker]
 -
   description: |
@@ -21,7 +21,7 @@
     There is nothing in this room except some (doors).
 -
   description: |
-    There's a small (table) in the center of the room. There's appears to be
+    There's a small (table) in the center of the room. There appears to be
     something on it. Maybe you should take a closer look.
   objects: [Table]
 -
