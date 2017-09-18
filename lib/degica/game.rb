@@ -19,12 +19,24 @@ module Degica
       @@objects
     end
 
-    def start
+    def welcome_message
       ANSI.clear_screen
+
       puts "Welcome to"
       puts ANSI.highlight(File.read(Degica.root + '/data/images/degica_quest.txt'), :yellow)
+      puts "Welcome, brave ruby warrior!"
+      puts "Please enter a username:"
+
+      username = Readline.readline("> ", true)
+      RestClient.post "https://meio9thjhi.execute-api.ap-northeast-1.amazonaws.com/production", {username: username}.to_json unless ENV['SKIP']
+
+      puts "Welcome (#{username})! An epic adventure awaits you.\n".highlight
+      puts "\n" + @actor.describe + "\n"
       puts "Type (actions) to see what actions you can perform.".highlight
-      puts "\n" + @@objects.actor.describe + "\n\n"
+    end
+
+    def start
+      welcome_message
 
       loop do
         input = Readline.readline("#{prompt}> ", true)

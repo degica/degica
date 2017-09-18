@@ -2,6 +2,8 @@ require "yaml"
 require "readline"
 require "coderay"
 require "ostruct"
+require "rest-client"
+require "json"
 
 # preload translations
 require "faker"
