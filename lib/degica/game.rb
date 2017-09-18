@@ -28,7 +28,11 @@ module Degica
       puts "Please enter a username:"
 
       username = Readline.readline("> ", true)
-      RestClient.post "https://meio9thjhi.execute-api.ap-northeast-1.amazonaws.com/production", {username: username}.to_json unless ENV['SKIP']
+      begin
+        RestClient.post "https://meio9thjhi.execute-api.ap-northeast-1.amazonaws.com/production", {username: username}.to_json unless ENV['SKIP']
+      rescue SocketError
+        nil
+      end
 
       puts "Welcome (#{username})! An epic adventure awaits you.\n".highlight
       puts "\n" + @actor.describe + "\n"
