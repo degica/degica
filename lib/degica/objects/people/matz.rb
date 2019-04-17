@@ -5,7 +5,7 @@ module Degica
     end
 
     def quote
-      Faker::Matz.quote
+      Faker::Quote.matz
     end
 
     def give(object = nil)
